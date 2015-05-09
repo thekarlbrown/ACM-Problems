@@ -165,8 +165,8 @@ public class KruskalCity {
                 for(Map.Entry<Vertex, Integer> potentialEntry : shortest.neighbours.entrySet()){
                     currentVertex=potentialEntry.getKey();
                     //final int alternateDist = shortest.dist + potentialEntry.getValue();
-                    final double alternateTrump = shortest.dist - shortest.totalAutobahn(0,shortest.name) + shortest.totalAutobahn(0,shortest.name)/2 + (potentialEntry.getKey().isAutobahn ? potentialEntry.getValue() : potentialEntry.getValue()/2);
-                    final double currentTrump = currentVertex.dist - currentVertex.totalAutobahn(0,currentVertex.name) + currentVertex.totalAutobahn(0,currentVertex.name)/2;
+                    final double alternateTrump = shortest.dist -  shortest.totalAutobahn(0,shortest.name)/2 + (potentialEntry.getKey().isAutobahn ? potentialEntry.getValue()/2 : potentialEntry.getValue());
+                    final double currentTrump = currentVertex.dist - currentVertex.totalAutobahn(0,currentVertex.name)/2;
                     //Check for shorter path, trumping with Autobahn, taking into account Autobahn is twice as fast
                     if ((alternateTrump<currentTrump)||(alternateTrump==currentTrump && (currentVertex.totalAutobahn(0,currentVertex.name)<potentialEntry.getKey().totalAutobahn(0,potentialEntry.getKey().name)))){
                         vertexes.remove(currentVertex);
