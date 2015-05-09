@@ -111,7 +111,7 @@ public class KruskalCity {
                     //Iterate through every Edge
                     for(Edge e : originalEdges){
                         if((e.start==this.previous.name && e.end==endChar)||(e.start==endChar&&e.end==this.previous.name)){
-                            return this.previous.totalAutobahn(this.isAutobahn ? soFarAutobahn : soFarAutobahn - e.distance,this.previous.name);
+                            return this.previous.totalAutobahn(this.isAutobahn ? soFarAutobahn  : soFarAutobahn - e.distance,this.previous.name);
                         }
                     }
                     //This point should never be reached as we made the Graph with the Edges
